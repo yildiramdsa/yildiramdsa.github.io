@@ -74,7 +74,6 @@ h6 {
   height: 72px;
   transition: all 0.5s;
   z-index: 997;
-  transition: all 0.5s;
   background: #fff;
 }
 
@@ -505,7 +504,6 @@ section {
 .features .nav-link {
   border: 0;
   padding: 20px;
-  transition: 0.3s;
   color: #364146;
   transition: 0.3s ease-in-out;
   border-radius: 0;
@@ -559,80 +557,6 @@ section {
   100% {
     opacity: 1;
   }
-}
-
-/*--------------------------------------------------------------
-# Services
---------------------------------------------------------------*/
-.services .icon-box {
-  padding: 30px;
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  background: #fff;
-  box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
-  transition: all 0.3s ease-in-out;
-  border-radius: 4px;
-  text-align: center;
-  border-bottom: 3px solid #fff;
-}
-
-.services .icon-box:hover {
-  transform: translateY(-5px);
-}
-
-.services .icon i {
-  font-size: 48px;
-  line-height: 1;
-  margin-bottom: 15px;
-}
-
-.services .title {
-  font-weight: 700;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.services .title a {
-  color: #111;
-}
-
-.services .description {
-  font-size: 15px;
-  line-height: 28px;
-  margin-bottom: 0;
-}
-
-.services .icon-box-pink .icon i {
-  color: #ff689b;
-}
-
-.services .icon-box-pink:hover {
-  border-color: #ff689b;
-}
-
-.services .icon-box-cyan .icon i {
-  color: #3fcdc7;
-}
-
-.services .icon-box-cyan:hover {
-  border-color: #3fcdc7;
-}
-
-.services .icon-box-green .icon i {
-  color: #41cf2e;
-}
-
-.services .icon-box-green:hover {
-  border-color: #41cf2e;
-}
-
-.services .icon-box-blue .icon i {
-  color: #2282ff;
-}
-
-.services .icon-box-blue:hover {
-  border-color: #2282ff;
 }
 
 /*--------------------------------------------------------------
@@ -936,7 +860,6 @@ section {
   background: #f4f6f7;
   position: relative;
   border-radius: 6px;
-  position: relative;
   z-index: 1;
 }
 
@@ -1112,7 +1035,6 @@ section {
   font-weight: 400;
   padding: 20px 15px;
   font-size: 18px;
-  font-weight: 400;
   color: #777777;
 }
 
@@ -1271,6 +1193,78 @@ section {
 .faq .faq-list .collapsed .icon-close {
   display: none;
   transition: 0.6s;
+}
+
+.faq .faq-list .icon-box {
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  background: #fff;
+  box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+  transition: all 0.3s ease-in-out;
+  border-radius: 4px;
+  text-align: center;
+  border-bottom: 3px solid #fff;
+}
+
+.faq .faq-list .icon-box:hover {
+  transform: translateY(-5px);
+}
+
+.faq .faq-list .icon-box .icon i {
+  font-size: 48px;
+  position: static;
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+.faq .faq-list .icon-box .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.faq .faq-list .icon-box .title a {
+  color: #111;
+}
+
+.faq .faq-list .icon-box .description {
+  font-size: 15px;
+  line-height: 28px;
+  margin-bottom: 0;
+}
+
+.faq .faq-list .icon-box-pink .icon i {
+  color: #ff689b;
+}
+
+.faq .faq-list .icon-box-pink:hover {
+  border-color: #ff689b;
+}
+
+.faq .faq-list .icon-box-cyan .icon i {
+  color: #3fcdc7;
+}
+
+.faq .faq-list .icon-box-cyan:hover {
+  border-color: #3fcdc7;
+}
+
+.faq .faq-list .icon-box-green .icon i {
+  color: #41cf2e;
+}
+
+.faq .faq-list .icon-box-green:hover {
+  border-color: #41cf2e;
+}
+
+.faq .faq-list .icon-box-blue .icon i {
+  color: #2282ff;
+}
+
+.faq .faq-list .icon-box-blue:hover {
+  border-color: #2282ff;
 }
 
 /*--------------------------------------------------------------
@@ -1599,7 +1593,6 @@ section {
   background: none;
   font-size: 16px;
   padding: 0 20px;
-  background: #009cea;
   color: #fff;
   transition: 0.3s;
   border-radius: 0 4px 4px 0;
