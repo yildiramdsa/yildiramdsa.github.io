@@ -376,7 +376,6 @@ h6 {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-size: 13px;
-  text-transform: uppercase;
   letter-spacing: 1px;
   display: inline-block;
   padding: 12px 28px;
@@ -547,6 +546,23 @@ section {
 
 .features .tab-content {
   text-align: right;
+}
+
+.features .btn-view-article {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #009cea;
+}
+
+.features .btn-view-article:hover {
+  background: #008bd1;
 }
 
 @keyframes slide-down {
@@ -1468,7 +1484,6 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #f7f8f9;
   padding: 0 0 30px 0;
   color: #364146;
   font-size: 14px;
