@@ -2,8 +2,6 @@
 
 Hello, I'm **Alina Yildir**, and I'm delighted to have you here. Please feel free to explore my projects and articles. If you have any questions or would like further information, don't hesitate to reach out. Thank you for visiting!
 
----
-
 ## 📋 Summary of Skills
 
 ### 📊 Data Engineering & Big Data
@@ -17,8 +15,6 @@ Hello, I'm **Alina Yildir**, and I'm delighted to have you here. Please feel fre
 
 ### 🤖 Machine Learning
 - **Tools:** Python (Scikit-learn, TensorFlow, Keras, XGBoost)
-
----
 
 ## 📞 Contact Information
 
