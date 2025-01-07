@@ -5,20 +5,20 @@ Hello, I'm **Alina Yildir**, and I'm delighted to have you here. Please feel fre
 ## 📋 Summary of Skills
 
 ### 📊 Data Engineering & Big Data
-- Python (Pandas, NumPy), R (dplyr, tidyr), SQL, BigQuery
+Python (Pandas, NumPy), R (dplyr, tidyr), SQL, BigQuery
 
 ### 🔍 Exploratory Data Analysis
-- Python (Pandas, Matplotlib, Seaborn, Plotly), R (ggplot2, dplyr, tidyr), Tableau
+Python (Pandas, Matplotlib, Seaborn, Plotly), R (ggplot2, dplyr, tidyr), Tableau
 
 ### 📐 Statistical Analysis & Inference
-- Python (SciPy, Statsmodels), R (stats, caret, glmnet, car, lmtest, olsrr)
+Python (SciPy, Statsmodels), R (stats, caret, glmnet, car, lmtest, olsrr)
 
 ### 🤖 Machine Learning
-- Python (Scikit-learn, TensorFlow, Keras, XGBoost)
+Python (Scikit-learn, TensorFlow, Keras, XGBoost)
 
 ## 📞 Contact Information
 
-- 📱 +1 613 700 4510  
-- 📧 yildir.a.mdsa@gmail.com  
-- 🔗 [LinkedIn](https://www.linkedin.com/in/yildiramdsa/)  
-- 🌐 [Portfolio](https://yildiramdsa.github.io)
+📱 +1 613 700 4510  
+📧 yildir.a.mdsa@gmail.com  
+🔗 [LinkedIn](https://www.linkedin.com/in/yildiramdsa/)  
+🌐 [Portfolio](https://yildiramdsa.github.io)
