@@ -18,7 +18,7 @@ Python (Scikit-learn, TensorFlow, Keras, XGBoost)
 
 ## 📞 Contact Information
 
-📱 +1 613 700 4510  
-📧 yildir.a.mdsa@gmail.com  
-🔗 [LinkedIn](https://www.linkedin.com/in/yildiramdsa/)  
-🌐 [Portfolio](https://yildiramdsa.github.io)
+📱 Phone: +1 613 700 4510  
+📧 Email: yildir.a.mdsa@gmail.com  
+🔗 LinkedIn: https://www.linkedin.com/in/yildiramdsa/  
+🌐 Portfolio: https://yildiramdsa.github.io
