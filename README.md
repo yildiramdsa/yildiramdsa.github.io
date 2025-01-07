@@ -4,16 +4,16 @@ Hello, I'm **Alina Yildir**, and I'm delighted to have you here. Please feel fre
 
 ## 📋 Summary of Skills
 
-### 📊 Data Engineering & Big Data
+### Data Engineering & Big Data
 Python (Pandas, NumPy), R (dplyr, tidyr), SQL, BigQuery
 
-### 🔍 Exploratory Data Analysis
+### Exploratory Data Analysis
 Python (Pandas, Matplotlib, Seaborn, Plotly), R (ggplot2, dplyr, tidyr), Tableau
 
-### 📐 Statistical Analysis & Inference
+### Statistical Analysis & Inference
 Python (SciPy, Statsmodels), R (stats, caret, glmnet, car, lmtest, olsrr)
 
-### 🤖 Machine Learning
+### Machine Learning
 Python (Scikit-learn, TensorFlow, Keras, XGBoost)
 
 ## 📞 Contact Information
