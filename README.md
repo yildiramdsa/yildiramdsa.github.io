@@ -4,7 +4,7 @@ Hello, I'm **Alina Yildir**, and I'm delighted to have you here. Please feel fre
 
 ## 📋 Summary of Skills
 
-**Data Engineering & Big Data**  
+**Data Wrangling and Preprocessing**  
 Python (Pandas, NumPy), R (dplyr, tidyr), SQL, BigQuery
 
 **Exploratory Data Analysis**  
