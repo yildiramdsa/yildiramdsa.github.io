@@ -463,48 +463,45 @@
 </footer>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> 
 <script>
-	document.addEventListener('DOMContentLoaded', () => {
-	  // 1) grab once
-	  const buttons       = document.querySelectorAll('.filter-btn');
-	  const projects      = document.querySelectorAll('#portfolio .nav-item');
-	  const tabLinks      = document.querySelectorAll('a[data-bs-toggle="tab"]');
-	  const tabContents   = document.querySelectorAll('.tab-pane');
-	  const overview      = document.querySelector('.tab-content');
-	  const HEADER_OFFSET = 150; // tweak if you have a fixed header
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons     = document.querySelectorAll('.filter-btn');
+  const projects    = document.querySelectorAll('#portfolio .nav-item');
+  const tabLinks    = document.querySelectorAll('a[data-bs-toggle="tab"]');
+  const HEADER_OFFSET = 150;
+  let initialLoad = true;
 
-	  // 2) helper to click the first visible project
-	  function selectFirstProject() {
-		const first = Array.from(projects).find(p => p.style.display !== 'none');
-		if (first) first.querySelector('a').click();
-	  }
+  function selectFirstProject() {
+    const first = Array.from(projects).find(p => p.style.display !== 'none');
+    if (first) first.querySelector('a').click();
+  }
 
-	  // 3) filter logic
-	  buttons.forEach(btn => {
-		btn.addEventListener('click', () => {
-		  const filter = btn.dataset.filter;
-		  buttons.forEach(b => b.classList.toggle('active', b === btn));
-		  projects.forEach(proj => {
-			const cats = proj.dataset.category.split(/\s+/);
-			proj.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
-		  });
-		  // after hiding/showing, pick the first
-		  setTimeout(selectFirstProject, 50);
-		});
-	  });
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      buttons.forEach(b => b.classList.toggle('active', b === btn));
+      projects.forEach(proj => {
+        const cats = proj.dataset.category.split(/\s+/);
+        proj.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
+      });
+      setTimeout(selectFirstProject, 50);
+    });
+  });
 
-	  // 4) when a tab is shown, auto-scroll to it
-	  tabLinks.forEach(link => {
-		link.addEventListener('shown.bs.tab', e => {
-		  const pane = document.querySelector(e.target.getAttribute('href'));
-		  if (!pane) return;
-		  const y = pane.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
-		  window.scrollTo({ top: y, behavior: 'smooth' });
-		});
-	  });
+  tabLinks.forEach(link => {
+    link.addEventListener('shown.bs.tab', e => {
+      if (initialLoad) {
+        initialLoad = false;
+        return;
+      }
+      const pane = document.querySelector(e.target.getAttribute('href'));
+      if (!pane) return;
+      const y = pane.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    });
+  });
 
-	  // 5) initially select
-	  selectFirstProject();
-	});
+  selectFirstProject();
+});
 </script> 
 <script src="assets/vendor/aos/aos.js"></script> 
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
