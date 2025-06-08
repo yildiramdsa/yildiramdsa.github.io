@@ -174,7 +174,7 @@
             <div class="tab-pane active show" id="p-tab-1">
               <h4 class="title pt-4">Data-Driven Department Optimization</h4>
               <p>Tech Stack: <img src="https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white" alt="NumPy"> <img src="https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white" alt="Pandas"> <img src="https://img.shields.io/badge/Seaborn-377EB8?logo=seaborn&logoColor=white" alt="Seaborn"> <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?logo=scikit-learn&logoColor=white" alt="Scikit-Learn"> <img src="https://img.shields.io/badge/XGBoost-F68712?logo=xgboost&logoColor=white" alt="XGBoost"> <img src="https://img.shields.io/badge/Prophet-0059A9?logo=prophet&logoColor=white" alt="Prophet"> <img src="https://img.shields.io/badge/TensorFlow-FF6F00?logo=tensorflow&logoColor=white" alt="TensorFlow"> <img src="https://img.shields.io/badge/Keras-D00000?logo=keras&logoColor=white" alt="Keras"> <img src="https://img.shields.io/badge/NLTK-025B8D?logo=nltk&logoColor=white" alt="NLTK"></p>
-              <img src="assets/img/data_driven_department_optimization.png" alt="" height="250">
+              <img src="assets/img/data_driven_department_optimization.png" alt="" height="200">
               <p>This project presents data-driven solutions to optimize departmental operations in Human Resources, Marketing, Sales, Operations, and Public Relations. The project addresses key business challenges and enhances decision-making by leveraging machine learning, deep learning, and advanced analytics.</p>
               <p>In the Human Resources Department, <strong>Logistic Regression</strong>, <strong>Random Forest</strong>, and <strong>Deep Learning models</strong> are used to predict employee turnover, providing actionable insights for retention strategies. The Marketing Department leverages <strong>K-Means</strong>, <strong>PCA</strong>, and <strong>Autoencoders</strong> for customer segmentation, enabling more targeted campaigns. In Sales, <strong>time series forecasting</strong> with <strong>Facebook Prophet</strong> helps predict daily sales, ensuring efficient inventory management. The Operations Department employs <strong>deep learning models</strong> for chest disease detection, enhancing medical diagnostics. Finally, the Public Relations Department applies <strong>Naive Bayes</strong> and <strong>Logistic Regression</strong> to predict customer satisfaction and improve engagement strategies.</p>
               <a class="btn-view-article align-middle" href="https://github.com/yildiramdsa/data-driven-department-optimization"><i class="bi bi-github"></i> View on GitHub</a> </div>
@@ -324,7 +324,7 @@
               <a class="btn-view-article align-middle" href="https://medium.com/@yildir.a.mdsa/analyzing-2024-olympic-medals-the-role-of-gdp-and-population-d5c68334153b"><i class="fa-solid fa-up-right-from-square"></i> View article</a> </div>
             <div class="tab-pane" id="tab-3">
               <h4 class="title pt-4">Overview</h4>
-              <img src="assets/img/understanding_p_value_hypothesis_testing.png" alt="" height="400">
+              <img src="assets/img/understanding_p_value_hypothesis_testing.png" alt="" height="350">
               <p>In hypothesis testing, we start with the null hypothesis (H<sub>0</sub>), assuming no effect or difference. We then collect our observed results&mdash;the actual data from the study&mdash;and calculate the p-value, which tells us how surprising these results are if H<sub>0</sub> is true. A small p-value (e.g., &lt; 0.05) leads us to reject H<sub>0</sub>, considering the alternative hypothesis (H<sub>1</sub>) as a possible explanation. A large p-value suggests our results align with H<sub>0</sub>, so we fail to reject it. Importantly, the p-value is not the probability that H<sub>0</sub> is true; instead, it’s the probability of observing our results, or more extreme ones, under the assumption that H<sub>0</sub> is correct.</p>
               <a class="btn-view-article align-middle" href="https://medium.com/@yildir.a.mdsa/understanding-the-p-value-in-hypothesis-testing-3e9550338662"><i class="fa-solid fa-up-right-from-square"></i> View article</a> </div>
           </div>
@@ -464,37 +464,32 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const buttons     = document.querySelectorAll('.filter-btn');
-  const projects    = document.querySelectorAll('#portfolio .nav-item');
-  const tabLinks    = document.querySelectorAll('a[data-bs-toggle="tab"]');
-  const HEADER_OFFSET = 150;
-  let initialLoad = true;
+  const buttons      = document.querySelectorAll('.filter-btn');
+  const projects     = document.querySelectorAll('#portfolio .nav-item');
+  const tabLinks     = document.querySelectorAll('a[data-bs-toggle="tab"]');
+  const HEADER_OFFSET = 90;
+  let initialLoad    = true;
 
   function selectFirstProject() {
     const first = Array.from(projects).find(p => p.style.display !== 'none');
     if (first) first.querySelector('a').click();
   }
 
+  selectFirstProject();
+
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
-      // Toggle active class on buttons
       buttons.forEach(b => b.classList.toggle('active', b === btn));
-      // Show/hide projects based on filter
       projects.forEach(proj => {
         const cats = proj.dataset.category.split(/\s+/);
         proj.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
       });
-      // Only auto-open the first visible project on desktop
-      if (window.innerWidth > 768) {
-        setTimeout(selectFirstProject, 50);
-      }
     });
   });
 
   tabLinks.forEach(link => {
     link.addEventListener('shown.bs.tab', e => {
-      // Skip scrolling on the very first automatic show
       if (initialLoad) {
         initialLoad = false;
         return;
@@ -505,11 +500,8 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollTo({ top: y, behavior: 'smooth' });
     });
   });
-
-  // On initial page load, open the first project (desktop and mobile alike)
-  selectFirstProject();
 });
-</script>
+</script> 
 <script src="assets/vendor/aos/aos.js"></script> 
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
 <script src="assets/vendor/glightbox/js/glightbox.min.js"></script> 
