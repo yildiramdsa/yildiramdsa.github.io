@@ -463,70 +463,48 @@
 </footer>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".filter-btn");
-    const projects = document.querySelectorAll("#portfolio .nav-item");  // Restrict to portfolio
-    const tabContents = document.querySelectorAll(".tab-pane");
-    const projectLinks = document.querySelectorAll(".project-link");
-    const overviewSection = document.querySelector(".tab-content");
+	document.addEventListener('DOMContentLoaded', () => {
+	  // 1) grab once
+	  const buttons       = document.querySelectorAll('.filter-btn');
+	  const projects      = document.querySelectorAll('#portfolio .nav-item');
+	  const tabLinks      = document.querySelectorAll('a[data-bs-toggle="tab"]');
+	  const tabContents   = document.querySelectorAll('.tab-pane');
+	  const overview      = document.querySelector('.tab-content');
+	  const HEADER_OFFSET = 150; // tweak if you have a fixed header
 
-    function selectFirstProject() {
-        const firstVisibleProject = document.querySelector("#portfolio .nav-item:not([style*='display: none'])");
-        if (firstVisibleProject) {
-            firstVisibleProject.querySelector("a").click(); // Trigger first visible project
-        }
-    }
+	  // 2) helper to click the first visible project
+	  function selectFirstProject() {
+		const first = Array.from(projects).find(p => p.style.display !== 'none');
+		if (first) first.querySelector('a').click();
+	  }
 
-    // Filter Projects
-    buttons.forEach(button => {
-        button.addEventListener("click", function () {
-            const filter = this.getAttribute("data-filter");
+	  // 3) filter logic
+	  buttons.forEach(btn => {
+		btn.addEventListener('click', () => {
+		  const filter = btn.dataset.filter;
+		  buttons.forEach(b => b.classList.toggle('active', b === btn));
+		  projects.forEach(proj => {
+			const cats = proj.dataset.category.split(/\s+/);
+			proj.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
+		  });
+		  // after hiding/showing, pick the first
+		  setTimeout(selectFirstProject, 50);
+		});
+	  });
 
-            // Update active button
-            buttons.forEach(btn => btn.classList.remove("active"));
-            this.classList.add("active");
+	  // 4) when a tab is shown, auto-scroll to it
+	  tabLinks.forEach(link => {
+		link.addEventListener('shown.bs.tab', e => {
+		  const pane = document.querySelector(e.target.getAttribute('href'));
+		  if (!pane) return;
+		  const y = pane.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
+		  window.scrollTo({ top: y, behavior: 'smooth' });
+		});
+	  });
 
-            // Show/hide projects only in the Portfolio section
-            projects.forEach(project => {
-                const categories = project.getAttribute("data-category").split(" "); // Convert categories into an array
-                if (filter === "all" || categories.includes(filter)) {
-                    project.style.display = "block";
-                } else {
-                    project.style.display = "none";
-                }
-            });
-
-            // If "All" is selected, show the first project
-            if (filter === "all") {
-                setTimeout(selectFirstProject, 100); // Slight delay to ensure visibility
-            } else {
-                selectFirstProject();
-            }
-        });
-    });
-
-    // Ensure Overview updates when a project is clicked
-    projectLinks.forEach(link => {
-        link.addEventListener("click", function (event) {
-            const target = this.getAttribute("href").substring(1);
-
-            // Hide all overviews and show the selected one
-            tabContents.forEach(content => content.classList.remove("active", "show"));
-            document.getElementById(target).classList.add("active", "show");
-
-            // Scroll to Overview Section in mobile view
-            if (window.innerWidth <= 768) {  // Mobile screen width condition
-                setTimeout(() => {
-                    overviewSection.scrollIntoView({ behavior: "smooth", block: "start" });
-                }, 300);
-            }
-        });
-    });
-
-    // Ensure first item is selected when page loads
-    selectFirstProject();
-});
-
+	  // 5) initially select
+	  selectFirstProject();
+	});
 </script> 
 <script src="assets/vendor/aos/aos.js"></script> 
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
