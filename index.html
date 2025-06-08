@@ -478,17 +478,23 @@ document.addEventListener('DOMContentLoaded', () => {
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
+      // Toggle active class on buttons
       buttons.forEach(b => b.classList.toggle('active', b === btn));
+      // Show/hide projects based on filter
       projects.forEach(proj => {
         const cats = proj.dataset.category.split(/\s+/);
         proj.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
       });
-      setTimeout(selectFirstProject, 50);
+      // Only auto-open the first visible project on desktop
+      if (window.innerWidth > 768) {
+        setTimeout(selectFirstProject, 50);
+      }
     });
   });
 
   tabLinks.forEach(link => {
     link.addEventListener('shown.bs.tab', e => {
+      // Skip scrolling on the very first automatic show
       if (initialLoad) {
         initialLoad = false;
         return;
@@ -500,9 +506,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // On initial page load, open the first project (desktop and mobile alike)
   selectFirstProject();
 });
-</script> 
+</script>
 <script src="assets/vendor/aos/aos.js"></script> 
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
 <script src="assets/vendor/glightbox/js/glightbox.min.js"></script> 
