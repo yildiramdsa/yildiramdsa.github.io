@@ -1,3 +1,2 @@
-Hi, I’m **Alina Yildir**!  
-Thanks for stopping by—feel free to explore my projects and reach out with any questions.  
-Enjoy your visit!
+Hey! I’m Alina Yildir.  
+Dive in to see my work, and don’t hesitate to get in touch.
