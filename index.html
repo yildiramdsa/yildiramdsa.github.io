@@ -456,42 +456,59 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const buttons      = document.querySelectorAll('.filter-btn');
-  const projects     = document.querySelectorAll('#portfolio .nav-item');
-  const tabLinks     = document.querySelectorAll('a[data-bs-toggle="tab"]');
+  const buttons       = document.querySelectorAll('.filter-btn');
+  const projects      = document.querySelectorAll('#portfolio .nav-item');
+  const tabLinks      = document.querySelectorAll('a[data-bs-toggle="tab"]');
   const HEADER_OFFSET = 90;
-  let initialLoad    = true;
 
-  function selectFirstProject() {
-    const first = Array.from(projects).find(p => p.style.display !== 'none');
-    if (first) first.querySelector('a').click();
-  }
+  // Track if the click was user-initiated (not triggered programmatically)
+  let userInitiatedClick = false;
 
-  selectFirstProject();
-
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-      buttons.forEach(b => b.classList.toggle('active', b === btn));
-      projects.forEach(proj => {
-        const cats = proj.dataset.category.split(/\s+/);
-        proj.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
-      });
-    });
-  });
-
+  // Add scroll behavior only for user-initiated tab clicks
   tabLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      userInitiatedClick = true;
+    });
+
     link.addEventListener('shown.bs.tab', e => {
-      if (initialLoad) {
-        initialLoad = false;
-        return;
-      }
+      if (!userInitiatedClick) return;
+      userInitiatedClick = false;
+
       const pane = document.querySelector(e.target.getAttribute('href'));
       if (!pane) return;
+
       const y = pane.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
       window.scrollTo({ top: y, behavior: 'smooth' });
     });
   });
+
+  // Handle filter button clicks (no scroll)
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      buttons.forEach(b => b.classList.toggle('active', b === btn));
+
+      projects.forEach(proj => {
+        const cats = proj.dataset.category.split(/\s+/);
+        proj.style.display = filter === 'all' || cats.includes(filter) ? '' : 'none';
+      });
+
+      // Trigger first visible project, but don't scroll
+      const first = Array.from(projects).find(p => p.style.display !== 'none');
+      if (first) {
+        userInitiatedClick = false;
+        first.querySelector('a').click();
+      }
+    });
+  });
+
+  // Initial load — select first project (no scroll)
+  const first = Array.from(projects).find(p => p.style.display !== 'none');
+  if (first) {
+    userInitiatedClick = false;
+    first.querySelector('a').click();
+  }
 });
 </script> 
 <script src="assets/vendor/aos/aos.js"></script> 
